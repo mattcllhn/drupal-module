@@ -1,0 +1,3 @@
+name = Custom Time
+description = Tracks time of users
+core = 7.x

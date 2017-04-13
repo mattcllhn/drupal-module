@@ -1,0 +1,37 @@
+<?php
+/**
+ * Implements hook_help().
+ *
+ * Displays help and module information.
+ *
+ * @param path
+ *   Which path of the site we're using to display help
+ * @param arg
+ *   Array that holds the current path as returned from arg() function
+ */
+function custom_time_help($path, $arg) {
+  switch ($path) {
+    case "admin/help#custom_time":
+      return t("Get help using Matt's custom friggin time module");
+      break;
+  }
+}
+
+function enablement_matts_number_formatter($numIn){
+  $str = '-----0-----';
+  $int = filter_var($numIn, FILTER_SANITIZE_NUMBER_INT);
+
+  $xplode =  explode ( $str ,  $int ,  $limit = PHP_INT_MAX  );
+  if(isset($xplode[1])){
+    $replace = str_replace('-',"",$xplode[1]);
+    $numOut = (int)$replace;
+    return  $numOut;
+  }else{
+    return 0;
+  }
+
+}//number formatter
+
+function matts_magic_number_rounder ($numIn){
+return round($numIn);
+}
